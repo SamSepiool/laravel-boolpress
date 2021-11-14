@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 // PUBLIC
 Route::get('/', 'PageController@index')->name('guestHome');
 Route::get('/blog', 'PostController@index')->name('blogHome');
+Route::get('/blog/{slug}', 'PostController@show')->name('singlePost');
+
 
 // AUTENTICATION
 Auth::routes();
