@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('POSTS') }}</div>
+                <div class="card-header">{{ __('POSTS') }}
+                  <a href="{{route('admin.posts.create')}}" class="btn btn-outline-primary">New post</a>
+                </div>
 
                 <div class="card-body">
 

@@ -17,10 +17,10 @@
                         <input type="text" class="form-control" name="title" id="title" placeholder="Write the post's title" value="{{ old('title') ? old('title') : $post['title'] }}">           
                     </div>
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" class="form-control" name="username" id="username" placeholder="Write the post's username" value="{{ old('username') ? old('username') : $post['username'] }}">
-                    </div>
+                    </div> --}}
 
                     <div class="form-group">
                         <label for="content">Content</label>
