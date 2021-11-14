@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // PUBLIC
-Route::get('/', 'PageController@index');
+Route::get('/', 'PageController@index')->name('guestHome');
 
 // AUTENTICATION
 Auth::routes();
