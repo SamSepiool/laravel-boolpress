@@ -10,7 +10,7 @@
             @if (Route::has('login'))
               @auth
                 <li class="nav-item active">
-                  <a class="nav-link" href="{{ route('admin.home') }}">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{{ route('admin.home') }}">Posts Dashboard<span class="sr-only">(current)</span></a>
                 </li>
               @else
                 <li class="nav-item">

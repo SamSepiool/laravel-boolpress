@@ -27,6 +27,7 @@
 
                 <div class="links">
                     <h1>home.blade, home, at least it was before I got lost among the others</h1>
+                    <h3><a href="{{route('blogHome')}}">go to the blog homepage</a></h3>
                 </div>
             </div>
         </div>
