@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// PUBLIC
 Route::get('/', 'PageController@index');
 
-
+// AUTENTICATION
 Auth::routes();
+
+// ADMIN AREA
 
 Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->group(function
 (){
