@@ -34,7 +34,10 @@
                             <td>{{$post['slug']}}</td>
                             <td>{{$post['username']}}</td>
                             <td>
-                                <a href="{{route('admin.posts.show', $post['id'])}}" class="btn btn-primary">Show</a>
+                              <a href="{{route('admin.posts.show', $post['id'])}}" class="btn btn-primary">Show</a>
+                            </td>
+                            <td>
+                              <a href="{{route('admin.posts.edit', $post['id'])}}" class="btn btn-warning">Edit</a>
                             </td>
                             <td>
                               <form onsubmit="return confirm('sure to delete POST-> {{$post['id']}}?')" action="{{route('admin.posts.destroy', $post['id'])}}" method="post">
