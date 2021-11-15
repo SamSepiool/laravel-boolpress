@@ -56,7 +56,8 @@ class PostController extends Controller
 
         
 
-        return redirect()->route('admin.posts.show', $newPost['id']);
+        return redirect()->route('admin.posts.index', $newPost['id'])
+            ->with('success', "post created succesfully (postID {{$newPost['id']}})");
     }
 
     /**
@@ -95,7 +96,7 @@ class PostController extends Controller
         $post->update($posts);
 
         return redirect()->route('admin.posts.show', $post['id'])
-            ->with('success', "{$post['title']} has been successfully deleted");
+            ->with('success', "modified succesfully");
     }
 
     /**
