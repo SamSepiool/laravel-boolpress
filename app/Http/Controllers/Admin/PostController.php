@@ -43,19 +43,12 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-        $newPostData = $request->all();
-        $newPostData['slug'] = Str::of($newPostData['title'])->slug('-');
-    
-        // $newPost = new Post();
-        // $newPost->title = $newPostData['title'];
-        // $newPost->slug = Str::of($newPost['title'])->slug('-');
-        // $newPost->username = $newPostData['username'];
-        // $newPost->content = $newPostData['content'];
-        // $newPost->save();
-        $newPost = Post::create($newPostData);
+        $newPost = new Post;
 
+        $newPost->fill($request->all());
+        $newPost->slug = $this->slugChecker($request->title);
+        $newPost->save();
         
-
         return redirect()->route('admin.posts.index', $newPost['id'])
             ->with('success', "post created succesfully (postID {{$newPost['id']}})");
     }
@@ -92,10 +85,15 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $posts = $request->all();
-        $post->update($posts);
 
-        return redirect()->route('admin.posts.show', $post['id'])
+        if($post->title != $request->title) {
+            $post->slug = $this->slugChecker($request->title);
+        }
+
+        $post->fill($request->all());
+        $post->save();
+
+        return redirect()->route('admin.posts.index', $post['id'])
             ->with('success', "modified succesfully");
     }
 
@@ -112,4 +110,29 @@ class PostController extends Controller
             ->with('success', "{$post['title']} has been successfully deleted");
 
     }
+
+     /**
+     * getSlug - return a unique slug
+     *
+     * @param  string $title
+     * @return string
+     */
+    private function slugChecker($value)
+    {
+        $slug = Str::of($value)->slug('-');
+
+        $postExist = Post::where("slug", $slug)->first();
+
+        $c = 2;
+        
+        while($postExist) {
+            $slug = Str::of($value)->slug('-') . "-{$c}";
+            $postExist = Post::where("slug", $slug)->first();
+            $c++;
+        }
+
+        return $slug;
+    }
 }
+
+
