@@ -51,7 +51,7 @@ class PostController extends Controller
         $newPost->slug = $this->slugChecker($request->title);
         $newPost->save();
         
-        return redirect()->route('admin.posts.index', $newPost['id'])
+        return redirect()->route('admin.posts.index')
             ->with('success', "post created succesfully (postID {{$newPost['id']}})");
     }
 
