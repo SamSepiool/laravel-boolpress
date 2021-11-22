@@ -23,6 +23,7 @@
                             <th scope="col">id</th>
                             <th scope="col">Title</th>
                             <th scope="col">Slug</th>
+                            <th scope='col'>Category</th>
                             <th scope="col">Username</th>
                             <th scope="col">Actions</th>
                             <th></th>
@@ -34,6 +35,7 @@
                             <td>{{$post['id']}}</td>
                             <td>{{$post['title']}}</td>
                             <td>{{$post['slug']}}</td>
+                            <td>{{$post['category']['name'] ?? ''}}</td>
                             <td>{{$post['username']}}</td>
                             <td>
                               <a href="{{route('admin.posts.show', $post['id'])}}" class="btn btn-primary">Show</a>
