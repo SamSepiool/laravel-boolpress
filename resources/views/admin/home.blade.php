@@ -18,6 +18,9 @@
                         <li>
                             <a href="{{route('admin.posts.index')}}">Tutti i post</a>
                         </li>
+                        <li>
+                            <a href="{{route('admin.categories.index')}}">Tutte le categorie</a>
+                        </li>
                     </ul>
                 </div>
             </div>
